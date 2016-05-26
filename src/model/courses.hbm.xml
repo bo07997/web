@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-26 20:35:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.courses" table="COURSES">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="cid" type="java.lang.String">
+            <column name="CID" />
+        </property>
+        <property name="cname" type="java.lang.String">
+            <column name="CNAME" />
+        </property>
+        <property name="sid" type="java.lang.String">
+            <column name="SID" />
+        </property>
+        <property name="ctime" type="date">
+            <column name="CTIME" />
+        </property>
+        <property name="tname" type="java.lang.String">
+            <column name="TNAME" />
+        </property>
+        <property name="fac" type="java.lang.String">
+            <column name="FAC" />
+        </property>
+    </class>
+</hibernate-mapping>

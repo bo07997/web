@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-27 0:43:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.teachers" table="TEACHERS">
+        <id name="tid" type="java.lang.String">
+            <column name="TID" />
+            <generator class="increment" />
+        </id>
+        <property name="tname" type="java.lang.String">
+            <column name="TNAME" />
+        </property>
+        <property name="fac" type="java.lang.String">
+            <column name="FAC" />
+        </property>
+        <property name="ttime" type="date">
+            <column name="TTIME" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>
