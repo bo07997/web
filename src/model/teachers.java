@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class teachers {
 
-	private String tid;
+	private Integer tid;
 	private String tname;
 	private String fac;
 	private Date ttime;
 	private String address;
-	public teachers(String tid, String tname, String fac, Date ttime,
+	public teachers(Integer tid, String tname, String fac, Date ttime,
 			String address) {
 		//super();
 		this.tid = tid;
@@ -21,10 +21,10 @@ public class teachers {
 	public teachers() {
 		
 	}
-	public String getTid() {
+	public Integer getTid() {
 		return tid;
 	}
-	public void setTid(String tid) {
+	public void setTid(Integer tid) {
 		this.tid = tid;
 	}
 	public String getTname() {
@@ -56,8 +56,6 @@ public class teachers {
 		return "teachers [tid=" + tid + ", tname=" + tname + ", fac=" + fac
 				+ ", ttime=" + ttime + ", address=" + address + "]";
 	}
-	
-	
 	
 	
 }

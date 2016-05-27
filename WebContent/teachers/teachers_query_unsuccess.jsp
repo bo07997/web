@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 * {
     background: none repeat scroll 0 0 transparent;
-    border: 1 none;
+    border: 0 none;
     margin: 0;
     padding: 0;
     vertical-align: baseline;
@@ -48,7 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	height:35px;
 }
 .button{
-	margin-top:20px;
+	float:left;
+	margin-right:10px;
 	padding-left:10px;
 	padding-right:10px;
 	font-size:14px;
@@ -70,57 +71,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 #mainContainer{
 	padding-left:10px;
 	padding-right:10px;
-	text-align:left;
+	text-align:center;
 	width:98%;
-	font-size:16px;
+	font-size:12px;
 }
 </style>
 <body>
-<script type="text/javascript" src="../js/Calendar3.js"></script>
-
 <div id="navi">
 	<div id='naviDiv'>
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;学生管理<span>&nbsp;
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/courses/Courses_query.action">选课列表</a><span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;教师管理<span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/teachers/Teachers_query.action">教师列表</a><span>&nbsp;
 	</div>
 </div>
-<div id="tips">
-</div>
-<div id="mainContainer">
-<!-- 从session中获取学生集合 -->
-<strong>添加选课信息</strong>
-<br>
-<br>
-<form name="addForm" action="<%=path%>/courses/Courses_add.action" method="post">
-<table width="500" >
-  <tr>
-    <td>课程编号：</td>
-    <td><input type="text" name="cid" /></td><a>如:c00001</a>
-  </tr>
-  <tr>
-    <td width="30%">课程名：</td>
-    <td><input type="text" name="cname" /></td>
-  </tr>
-  <tr>
-    <td>学号：</td>
-    <td><input type="text" name="sid" /></td><a>如:s00001</a>
-  </tr>
-  <tr>
-    <td>教师名：</td>
-    <td><input name="tname" type="text" />
-    </td>
-  </tr>
-  <tr>
-    <td>院系：</td>
-    <td><input type="text" name="fac" /></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><input class="button" type="submit" value="添加"></td>
-  </tr>
-</table>
-</form>
 
-
+<div id='picture of mine'>
+<img src="../images/unsuccess.jpg" width="600" height="300" border="0" alt=""><br clear=left>
+<a  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000">没有权限,请重新登录！</font></a>
 </div>
+
+	
+
 </body>
 </html>

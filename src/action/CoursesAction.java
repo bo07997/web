@@ -71,7 +71,6 @@ public class CoursesAction extends SuperAction implements ModelDriven<courses>{
 	{
 		CoursesDAO cDao=new CoursesDAOimpl();
 		cDao.addCourses(course);
-		System.out.println(course);
 		return "add_success";
 	}
 }

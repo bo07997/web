@@ -19,7 +19,7 @@ var treeMenu = [
 	{ level:2, name:"学生列表", ico:"images/icon_default.gif",link:"students/Students_query.action"},
 	{ level:2, name:"选课信息", ico:"images/icon_default.gif",link:"courses/Courses_query.action"},
 	{ level:1, name:"教师管理"},
-	{ level:2, name:"教师列表", ico:"images/icon_default.gif",link:"role_list.html"},
+	{ level:2, name:"教师列表", ico:"images/icon_default.gif",link:"teachers/Teachers_query.action"},
 	{ level:1, name:"信息管理"},
 	{ level:2, name:"新闻管理", ico:"images/icon_default.gif",link:"news_list.html"},
 	{ level:2, name:"公告管理", ico:"images/icon_default.gif",link:"bulletin_list.html"},

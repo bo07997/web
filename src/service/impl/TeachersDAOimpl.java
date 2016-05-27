@@ -8,25 +8,21 @@ import org.hibernate.Transaction;
 
 import db.MyhibernateSessionFactory;
 import model.courses;
-import model.students;
-import service.CoursesDAO;
+import model.teachers;
+import service.TeachersDAO;
 
-public class CoursesDAOimpl implements CoursesDAO {
+public class TeachersDAOimpl implements TeachersDAO {
 
-	/*
-	 * 查询全部选课信息
-	 * @see service.CoursesDAO#queryALLCourses()
-	 */
 	@Override
-	public List<courses> queryALLCourses() {
-		List<courses> list=null;
+	public List<teachers> queryALLTeachers() {
+		List<teachers> list=null;
 		Transaction tx=null;
 		
 		String hql="";
 		try {
 			Session session=MyhibernateSessionFactory.getSessionFactory().getCurrentSession();
 		    tx=session.beginTransaction();
-			hql="from courses"; 
+			hql="from teachers"; 
 		    Query query=session.createQuery(hql);
 		    list=query.list();
 //		    Query query = session.createQuery("from courses");
@@ -49,49 +45,17 @@ public class CoursesDAOimpl implements CoursesDAO {
 				tx=null;
 			}
 		}
+		
 	}
 
 	@Override
-	public List<courses> queryCoursesBySid(String sid) {
-		Transaction tx=null;
-		String hql="";
-		List<courses> course=null;
-		try {
-			Session session=MyhibernateSessionFactory.getSessionFactory().getCurrentSession();
-		    tx=session.beginTransaction();
-			hql="from courses where SID=? "; 
-		    Query query=session.createQuery(hql);
-		    query.setParameter(0, sid);
-             course=query.list();
-		    tx.commit();
-		    return course;
-		    
-		} catch (Exception e) 
-		{
-		    	e.printStackTrace();
-		    	tx.commit();
-			
-		}
-		finally
-		{
-			if(tx!=null)
-			{
-				tx=null;
-			}
-		}
-		return course;
-	}
-	/*
-	 * 通过sid删除学生
-	 */
-	@Override
-	public boolean delcourseBySid(Integer id) {
+	public boolean delTeacherByTid(Integer tid) {
 		Transaction tx=null;
 		try {
 			Session session=MyhibernateSessionFactory.getSessionFactory().getCurrentSession();
 		    tx=session.beginTransaction();
-		   courses course=(courses)session.get(courses.class, id);
-		    session.delete(course);
+		   teachers teacher=(teachers)session.get(teachers.class, tid);
+		    session.delete(teacher);
 		    tx.commit();
 		    return true;
 		   
@@ -110,17 +74,14 @@ public class CoursesDAOimpl implements CoursesDAO {
 			}
 		}
 	}
-/*
- * 添加选课信息
- */
+
 	@Override
-	public boolean addCourses(courses course) {
-		
+	public boolean addTeachers(teachers teacher) {
 		Transaction tx=null;
 		try {
 			Session session=MyhibernateSessionFactory.getSessionFactory().getCurrentSession();
 		    tx=session.beginTransaction();
-		    session.save(course);
+		    session.save(teacher);
 		    tx.commit();
 		    return true;
 		    
@@ -137,5 +98,5 @@ public class CoursesDAOimpl implements CoursesDAO {
 			}
 		}
 	}
-	
+
 }

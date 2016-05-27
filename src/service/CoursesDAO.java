@@ -16,7 +16,7 @@ public interface CoursesDAO {
 	// 删除学生选课
 	public boolean delcourseBySid(Integer id);
 	//添加选课资料
-		public boolean addCourses(courses course);
+	public boolean addCourses(courses course);
 	
 	
 }

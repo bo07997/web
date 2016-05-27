@@ -80,8 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div id="navi">
 	<div id='naviDiv'>
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;学生管理<span>&nbsp;
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/courses/Courses_query.action">选课列表</a><span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;教师管理<span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/teachers/Teachers_query.action">教师列表</a><span>&nbsp;
 	</div>
 </div>
 <div id="tips">
@@ -91,29 +91,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <strong>添加选课信息</strong>
 <br>
 <br>
-<form name="addForm" action="<%=path%>/courses/Courses_add.action" method="post">
+<form name="addForm" action="<%=path%>/teachers/Teachers_add.action" method="post">
 <table width="500" >
+ 
   <tr>
-    <td>课程编号：</td>
-    <td><input type="text" name="cid" /></td><a>如:c00001</a>
+    <td width="30%">教师名：</td>
+    <td><input type="text" name="tname" /></td>
   </tr>
   <tr>
-    <td width="30%">课程名：</td>
-    <td><input type="text" name="cname" /></td>
-  </tr>
-  <tr>
-    <td>学号：</td>
-    <td><input type="text" name="sid" /></td><a>如:s00001</a>
-  </tr>
-  <tr>
-    <td>教师名：</td>
-    <td><input name="tname" type="text" />
+    <td>入职时间：</td>
+    <td><input name="ttime" type="text" /><a>注:形式为yyyy-mm-dd</a>
     </td>
   </tr>
   <tr>
     <td>院系：</td>
-    <td><input type="text" name="fac" /></td>
+    <td><input type="text" name="fac" />
   </tr>
+  <tr>
+    <td>住址：</td>
+    <td><input name="address" type="text" />
+    </td>
+  </tr>
+  
   <tr>
     <td colspan="2" align="center"><input class="button" type="submit" value="添加"></td>
   </tr>
@@ -123,4 +122,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </div>
 </body>
-</html>

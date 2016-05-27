@@ -4,7 +4,7 @@
 <!-- Generated 2016-5-27 0:43:14 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="model.teachers" table="TEACHERS">
-        <id name="tid" type="java.lang.String">
+        <id name="tid" type="java.lang.Integer">
             <column name="TID" />
             <generator class="increment" />
         </id>

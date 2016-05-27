@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 * {
     background: none repeat scroll 0 0 transparent;
-    border: 1 none;
+    border: 0 none;
     margin: 0;
     padding: 0;
     vertical-align: baseline;
@@ -48,7 +48,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	height:35px;
 }
 .button{
-	margin-top:20px;
+	float:left;
+	margin-right:10px;
 	padding-left:10px;
 	padding-right:10px;
 	font-size:14px;
@@ -70,57 +71,73 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 #mainContainer{
 	padding-left:10px;
 	padding-right:10px;
-	text-align:left;
+	text-align:center;
 	width:98%;
-	font-size:16px;
+	font-size:12px;
 }
 </style>
 <body>
-<script type="text/javascript" src="../js/Calendar3.js"></script>
-
 <div id="navi">
 	<div id='naviDiv'>
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;学生管理<span>&nbsp;
-		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/courses/Courses_query.action">选课列表</a><span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;教师管理<span>&nbsp;
+		<span><img src="../images/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/teachers/Teachers_query.action">教师列表</a><span>&nbsp;
 	</div>
 </div>
 <div id="tips">
+	<div id="buttonGroup">
+		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
+			<a href="<%=path%>/teachers/Teachers_add.jsp">添加教师</a>
+		</div>
+		
+	</div>
 </div>
-<div id="mainContainer">
+<div id="mainContainer" >
 <!-- 从session中获取学生集合 -->
-<strong>添加选课信息</strong>
-<br>
-<br>
-<form name="addForm" action="<%=path%>/courses/Courses_add.action" method="post">
-<table width="500" >
-  <tr>
-    <td>课程编号：</td>
-    <td><input type="text" name="cid" /></td><a>如:c00001</a>
-  </tr>
-  <tr>
-    <td width="30%">课程名：</td>
-    <td><input type="text" name="cname" /></td>
-  </tr>
-  <tr>
-    <td>学号：</td>
-    <td><input type="text" name="sid" /></td><a>如:s00001</a>
-  </tr>
-  <tr>
-    <td>教师名：</td>
-    <td><input name="tname" type="text" />
-    </td>
-  </tr>
-  <tr>
-    <td>院系：</td>
-    <td><input type="text" name="fac" /></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><input class="button" type="submit" value="添加"></td>
-  </tr>
+<table class="default"  style="width:1130px">
+	<col width="10%">
+	<col width="20%">
+	<col width="5%">
+	<col width="20%">
+	<col width="30%">
+	<col width="15%">
+	
+	<tr class="title">
+		<td>教师号</td>
+		<td>教师名</td>
+		<td>院系</td>
+		<td>入职时间</td>
+		<td>住址</td>
+		<td>操作</td>
+	</tr>
+	</table>
+	</div>
+	
+	<div id="mainContainer" style="width:1130px; height:325px; overflow:scroll;">
+  <table class="default" style="width:1130px; height:300px;" >
+	<col width="10%">
+	<col width="20%">
+	<col width="5%">
+	<col width="20%">
+	<col width="30%">
+	<col width="15%">
+	
+	
+	
+	<!-- 遍历开始 -->
+	 
+	<s:iterator value="#session.teachers_list" var="teacher" >
+	<tr class="list">
+		<td><s:property value="#teacher.tid"/></td>
+		<td><s:property value="#teacher.tname"/></td>
+		<td><s:property value="#teacher.fac"/></td>
+		<td><s:date name="#teacher.ttime" format="yyyy年MM月dd日"/></td>
+		<td><s:property value="#teacher.address"/></td>
+		<td><a href="<%=path%>/teachers/Teachers_delete.action?tid=<s:property value="#teacher.tid"/>" onclick="javascript: return confirm('真的要删除吗？');">删除</a></td>
+	</tr>
+	</s:iterator>
+	
+	<!-- 遍历结束 -->
 </table>
-</form>
-
-
 </div>
 </body>
 </html>
